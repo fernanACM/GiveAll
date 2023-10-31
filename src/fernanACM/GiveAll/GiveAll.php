@@ -30,7 +30,7 @@ use CortexPE\Commando\PacketHooker;
 use DaPigGuy\libPiggyUpdateChecker\libPiggyUpdateChecker;
 # My files
 use fernanACM\GiveAll\forms\GiveAllForm;
-use fernanACM\GiveAll\forms\GiveAllGUI;
+use fernanACM\GiveAll\gui\GiveAllGUI;
 use fernanACM\GiveAll\task\GiveAllTask;
 use fernanACM\GiveAll\utils\PluginUtils;
 use fernanACM\GiveAll\commands\GiveAllCommand;

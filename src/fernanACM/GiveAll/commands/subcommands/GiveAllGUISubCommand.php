@@ -17,7 +17,7 @@ use pocketmine\command\CommandSender;
 use CortexPE\Commando\BaseSubCommand;
 
 use fernanACM\GiveAll\GiveAll;
-use fernanACM\GiveAll\forms\GiveAllGUI;
+use fernanACM\GiveAll\gui\GiveAllGUI;
 use fernanACM\GiveAll\utils\PermissionsUtils;
 use fernanACM\GiveAll\utils\PluginUtils;
 

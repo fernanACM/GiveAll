@@ -8,7 +8,7 @@
 # The creator of this plugin was fernanACM.
 # https://github.com/fernanACM
  
-namespace fernanACM\GiveAll\forms;
+namespace fernanACM\GiveAll\gui;
 
 use Closure;
 

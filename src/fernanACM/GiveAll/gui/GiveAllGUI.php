@@ -79,9 +79,11 @@ class GiveAllGUI{
                     foreach(Server::getInstance()->getOnlinePlayers() as $target){
                         GiveAllManager::getInstance()->giveItemForAll($item, $target);
                     }
-                    $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.item-sent"));
+                    $itemData = str_replace(["{ITEM_NAME}", "{ITEM_COUNT}"], [$item->getName(), $item->getCount()], 
+                    GiveAll::getMessage($player, "Messages.successful.item-sent"));
+                    $player->sendMessage(GiveAll::getPrefix(). $itemData);
                 }else{
-                    $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.no-item"));
+                    $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.error.no-item"));
                     PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                 }
             break;

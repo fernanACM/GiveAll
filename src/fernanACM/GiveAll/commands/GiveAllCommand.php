@@ -24,6 +24,7 @@ use fernanACM\GiveAll\commands\subcommands\EditSubCommand;
 use fernanACM\GiveAll\commands\subcommands\GiveAllGUISubCommand;
 use fernanACM\GiveAll\commands\subcommands\GiveAllFormSubCommand;
 use fernanACM\GiveAll\commands\subcommands\SendSubCommand;
+use pocketmine\utils\TextFormat;
 
 class GiveAllCommand extends BaseCommand{
 
@@ -58,5 +59,14 @@ class GiveAllCommand extends BaseCommand{
             PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);
             return;
         }
+        $sender->sendMessage(TextFormat::colorize("&l&cGIVEALL - COMMAND LIST"));
+        $sender->sendMessage(TextFormat::colorize("&e/giveall form:&7 GiveAll in Form"));
+        $sender->sendMessage(TextFormat::colorize("&e/giveall gui:&7 GiveAll in GUI"));
+        $sender->sendMessage(TextFormat::colorize("&e/giveall send <amount: 1,2,3...>:&7 Automatic GiveAll"));
+        $sender->sendMessage(TextFormat::colorize("&e/giveall edit:&7 Edit the inventory of the automatic GiveAll"));
+        $sender->sendMessage(TextFormat::colorize("\n&bAuthor:&a fernanACM"));
+        $sender->sendMessage(TextFormat::colorize("&bGithub:&a https://github.com/fernanACM"));
+        $sender->sendMessage(TextFormat::colorize("&bYoutube:&a fernanACM"));
+        $sender->sendMessage(TextFormat::colorize("&bDiscord:&a https://discord.gg/YyE9XFckqb"));
     }
 }

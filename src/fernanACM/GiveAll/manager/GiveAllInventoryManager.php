@@ -102,7 +102,7 @@ class GiveAllInventoryManager extends InventoryManager{
             $this->setContents($content);
             // backup
             $this->saveInventory();
-            $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.inventory-saved-successfully"));
+            $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.successful.inventory-saved-successfully"));
             PluginUtils::PlaySound($player, "block.stonecutter.use", 1, 2.1);
         });
         $menu->send($player);

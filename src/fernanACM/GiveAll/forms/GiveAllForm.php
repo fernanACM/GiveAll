@@ -57,6 +57,11 @@ class GiveAllForm{
         $itemCount = $item->getCount();
         $content = GiveAll::getMessage($player, "Menu.Form.content");
         $content = str_replace(["{ITEM_NAME}", "{ITEM_COUNT}"], [$itemName, $itemCount], $content);
+        if($item->isNull()){
+            $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.error.no-item"));
+            PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
+            return;
+        }
         # FORM
         $modal->setTitle(TextFormat::colorize("&l&2GIVEALL"));
         $modal->setContent($content);

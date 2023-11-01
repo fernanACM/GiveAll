@@ -33,7 +33,7 @@ class GiveAllTask extends Task{
                 }
             }
         }
-        $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.item-received"));
+        $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
         PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
     }
 }

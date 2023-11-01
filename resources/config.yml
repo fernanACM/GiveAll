@@ -1,0 +1,57 @@
+#   ____   _                     _      _   _ 
+#  / ___| (_) __   __   ___     / \    | | | |
+# | |  _  | | \ \ / /  / _ \   / _ \   | | | |
+# | |_| | | |  \ V /  |  __/  / ___ \  | | | |
+#  \____| |_|   \_/    \___| /_/   \_\ |_| |_|
+#         by fernanACM
+# Give items to all players on your server. Only for PocketMine-MP 5.0
+
+# DO NOT TOUCH!
+config-version: "1.0.0"
+# Prefix plugin
+Prefix: "&l&f[&9GiveAll&f]&8»&r "
+
+# ==(SETTINGS)==
+Settings:
+  Assistant:
+    # Automatic delivery assistant
+    # Use true or false to activate/deactivate this option
+    enabled: true
+    # The time to receive the items:
+    # 600 => 10 minutes
+    # 300 => 5 minutes
+    # More...
+    delay: 600
+    # Items you will receive
+    items-to-receive: 3
+
+# ==(GUI - FORM)==
+Menu:
+  GUI:
+    Items:
+      place-item:
+        - "&r&ePut the item here:"
+        - "&r&e|"
+        - "&r&eV"
+      close-menu: "&r&l&4CLOSE MENU"
+      item-send: "&r&aSend article to all"
+  Form:
+    content:
+      - "&aAre you sure you want to give this item to everyone?"
+      - "{LINE}"
+      - "&l&cITEM:&r"
+      - "&bName:&d {ITEM_NAME}"
+      - "&bCount:&d x{ITEM_COUNT}"
+    accept-button: "&l&2YES"
+    accept-deny: "&l&4NO"
+
+# ==(MESSAGES)==
+Messages:
+  successful:
+    item-received: "&aYou have received items!"
+    item-sent: "&bYou have sent &ax{ITEM_COUNT}&b of&a {ITEM_NAME}&r6b to all players!"
+    item-sent-auto: "&bYou have sent items to all players!"
+    inventory-saved-successfully: "&aThe inventory content has been successfully saved!"
+  error:
+    no-item: "&cThe item is invalid!"
+    no-permission: "&cYou don't have permissions for this!"

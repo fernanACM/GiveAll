@@ -28,9 +28,7 @@ class GiveAllTask extends Task{
             $amount = intval(GiveAll::getInstance()->config->getNested("Settings.Assistant.items-to-receive"));
             $inventory = GiveAllInventoryManager::getInstance()->getRandomItems($amount);
             foreach($inventory as $item){
-                foreach(Server::getInstance()->getOnlinePlayers() as $target){
-                    $target->getInventory()->addItem($item);
-                }
+                $target->getInventory()->addItem($item);
             }
         }
         $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));

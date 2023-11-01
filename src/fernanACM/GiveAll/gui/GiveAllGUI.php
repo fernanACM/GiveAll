@@ -47,7 +47,7 @@ class GiveAllGUI{
         $menu->setName(TextFormat::colorize("&l&2GIVEALL"));
         for($i = 0; $i < 27; $i++){
             if(!in_array($i, [2, 11, 13, 15])){
-                $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName(""));
+                $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName(TextFormat::colorize("&r")));
             }
         }
         $inv->setItem(2, VanillaBlocks::IRON_BARS()->asItem()->setCustomName(GiveAll::getMessage($player, "Menu.GUI.Items.place-item")));
@@ -83,6 +83,7 @@ class GiveAllGUI{
                     GiveAll::getMessage($player, "Messages.successful.item-sent"));
                     $player->sendMessage(GiveAll::getPrefix(). $itemData);
                 }else{
+                    $player->removeCurrentWindow();
                     $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.error.no-item"));
                     PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                 }

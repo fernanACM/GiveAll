@@ -11,6 +11,7 @@
 namespace fernanACM\GiveAll\task;
 
 use pocketmine\Server;
+use pocketmine\player\Player;
 
 use pocketmine\scheduler\Task;
 
@@ -25,13 +26,16 @@ class GiveAllTask extends Task{
      */
     public function onRun(): void{
         foreach(Server::getInstance()->getOnlinePlayers() as $target){
+            if(!$target instanceof Player){
+                return;
+            }
             $amount = intval(GiveAll::getInstance()->config->getNested("Settings.Assistant.items-to-receive"));
             $inventory = GiveAllInventoryManager::getInstance()->getRandomItems($amount);
             foreach($inventory as $item){
                 $target->getInventory()->addItem($item);
             }
+            $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
+            PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
         }
-        $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
-        PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
     }
 }

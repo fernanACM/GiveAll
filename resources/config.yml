@@ -29,10 +29,7 @@ Settings:
 Menu:
   GUI:
     Items:
-      place-item:
-        - "&r&ePut the item here:"
-        - "&r&e|"
-        - "&r&eV"
+      place-item: "&r&ePut the item here:"
       close-menu: "&r&l&4CLOSE MENU"
       item-send: "&r&aSend article to all"
   Form:
@@ -43,13 +40,13 @@ Menu:
       - "&bName:&d {ITEM_NAME}"
       - "&bCount:&d x{ITEM_COUNT}"
     accept-button: "&l&2YES"
-    accept-deny: "&l&4NO"
+    deny-button: "&l&4NO"
 
 # ==(MESSAGES)==
 Messages:
   successful:
     item-received: "&aYou have received items!"
-    item-sent: "&bYou have sent &ax{ITEM_COUNT}&b of&a {ITEM_NAME}&r6b to all players!"
+    item-sent: "&bYou have sent &ax{ITEM_COUNT}&b of&a {ITEM_NAME}&r&b to all players!"
     item-sent-auto: "&bYou have sent items to all players!"
     inventory-saved-successfully: "&aThe inventory content has been successfully saved!"
   error:

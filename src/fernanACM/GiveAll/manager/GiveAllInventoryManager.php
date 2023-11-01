@@ -31,7 +31,7 @@ class GiveAllInventoryManager extends InventoryManager{
     private const JSON = "backup/rollback-inv.json";
 
     /** @var array $menu */
-    private array $menu = [];
+    private static array $menu = [];
 
     private function __construct(){
     }

@@ -29,28 +29,34 @@ class GiveAllManager{
     /**
      * @param Player $player
      * @param Player $target
+     * @param boolean $message
      * @return void
      */
-    public function giveItemInHand(Player $player, Player $target): void{
+    public function giveItemInHand(Player $player, Player $target, bool $message = true): void{
         $item = $player->getInventory()->getItemInHand();
         $target->getInventory()->addItem($item);
         $itemData = str_replace(["{ITEM_NAME}", "{ITEM_COUNT}"], [$item->getName(), $item->getCount()], 
         GiveAll::getMessage($player, "Messages.successful.item-sent"));
-        $player->sendMessage(GiveAll::getPrefix(). $itemData);
-        $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
-        PluginUtils::PlaySound($player, "random.pop2", 1, 6.5);
-        PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
+        if($message === true){
+            $player->sendMessage(GiveAll::getPrefix(). $itemData);
+            $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
+            PluginUtils::PlaySound($player, "random.pop2", 1, 6.5);
+            PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
+        }else PluginUtils::PlaySound($player, "random.pop2", 1, 6.5);
     }
 
     /**
      * @param Item $item
      * @param Player $target
+     * @param boolean $message
      * @return void
      */
-    public function giveItemForAll(Item $item, Player $target): void{
+    public function giveItemForAll(Item $item, Player $target, bool $message = true): void{
         $target->getInventory()->addItem($item);
-        $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
-        PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
+        if($message === true){
+            $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
+            PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
+        }else PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
     }
 
     /**

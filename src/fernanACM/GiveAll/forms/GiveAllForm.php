@@ -41,9 +41,16 @@ class GiveAllForm{
             }
             switch($data){
                 case true:
+                    $item = $player->getInventory()->getItemInHand();
                     foreach(Server::getInstance()->getOnlinePlayers() as $target){
-                        GiveAllManager::getInstance()->giveItemInHand($player, $target);
+                        GiveAllManager::getInstance()->giveItemInHand($player, $target, false);
                     }
+                    $itemData = str_replace(["{ITEM_NAME}", "{ITEM_COUNT}"], [$item->getName(), $item->getCount()], 
+                    GiveAll::getMessage($player, "Messages.successful.item-sent"));
+                    $player->sendMessage(GiveAll::getPrefix(). $itemData);
+                    $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
+                    PluginUtils::PlaySound($player, "random.pop2", 1, 6.5);
+                    PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
                 break;
 
                 case false:

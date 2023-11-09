@@ -12,6 +12,8 @@ namespace fernanACM\GiveAll\commands;
 
 use pocketmine\player\Player;
 
+use pocketmine\utils\TextFormat;
+
 use pocketmine\command\CommandSender;
 
 use CortexPE\Commando\BaseCommand;
@@ -24,7 +26,6 @@ use fernanACM\GiveAll\commands\subcommands\EditSubCommand;
 use fernanACM\GiveAll\commands\subcommands\GiveAllGUISubCommand;
 use fernanACM\GiveAll\commands\subcommands\GiveAllFormSubCommand;
 use fernanACM\GiveAll\commands\subcommands\SendSubCommand;
-use pocketmine\utils\TextFormat;
 
 class GiveAllCommand extends BaseCommand{
 

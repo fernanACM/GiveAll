@@ -136,7 +136,7 @@ class GiveAll extends PluginBase{
      */
     private function loadTasks(): void{
         if($this->config->getNested("Settings.Assistant.enabled")){
-            $this->getScheduler()->scheduleDelayedTask(new GiveAllTask, $this->config->get("Settings.Assistant.delay") * 20);
+            $this->getScheduler()->scheduleRepeatingTask(new GiveAllTask, $this->config->get("Settings.Assistant.delay") * 20);
         }
     }
 

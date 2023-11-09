@@ -20,6 +20,8 @@ use pocketmine\utils\TextFormat;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\item\VanillaItems;
 
+use pocketmine\inventory\Inventory;
+
 use muqsit\invmenu\InvMenu;
 use muqsit\invmenu\transaction\InvMenuTransaction;
 use muqsit\invmenu\transaction\InvMenuTransactionResult;
@@ -54,6 +56,7 @@ class GiveAllGUI{
         $inv->setItem(13, VanillaBlocks::BARRIER()->asItem()->setCustomName(GiveAll::getMessage($player, "Menu.GUI.Items.close-menu")));
         $inv->setItem(15, VanillaBlocks::EMERALD()->asItem()->setCustomName(GiveAll::getMessage($player, "Menu.GUI.Items.item-send")));
         $menu->setListener(Closure::fromCallable([$this, "listernerGiveAll"]));
+        $menu->setInventoryCloseListener(Closure::fromCallable([$this, "inventoryCloseListener"]));
         $menu->send($player);
     }
 
@@ -90,6 +93,18 @@ class GiveAllGUI{
             break;
         }
         return $transaction->discard();
+    }
+
+    /**
+     * @param Player $player
+     * @param Inventory $inventory
+     * @return void
+     */
+    private function inventoryCloseListener(Player $player, Inventory $inventory): void{
+        $item = $inventory->getItem(11);
+        if(!$player->getInventory()->canAddItem($item)){
+            $player->getWorld()->dropItem($player->getPosition(), $item);
+        }else $player->getInventory()->addItem($item);
     }
 
     /**

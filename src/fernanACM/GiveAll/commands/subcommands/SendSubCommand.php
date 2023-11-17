@@ -10,6 +10,8 @@
   
 namespace fernanACM\GiveAll\commands\subcommands;
 
+use pocketmine\player\Player;
+
 use pocketmine\utils\TextFormat;
 
 use pocketmine\command\CommandSender;
@@ -43,6 +45,10 @@ class SendSubCommand extends BaseSubCommand{
      * @return void
      */
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void{
+        if(!$sender instanceof Player){
+            $sender->sendMessage("Use this command in-game");
+            return;
+        }
         if(!$sender->hasPermission(PermissionsUtils::GIVEALL_SEND)){
             $sender->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($sender, "Messages.error.no-permission"));
             PluginUtils::PlaySound($sender, "mob.villager.no", 1, 1);

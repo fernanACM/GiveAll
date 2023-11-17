@@ -66,15 +66,15 @@ class GiveAllManager{
      */
     public function sendItemsForAll(Player $player, int $amount): void{
         $inventory = GiveAllInventoryManager::getInstance()->getRandomItems($amount);
-        foreach($inventory as $item){
-            foreach(Server::getInstance()->getOnlinePlayers() as $target){
+        foreach(Server::getInstance()->getOnlinePlayers() as $target){
+            foreach($inventory as $item){
                 $target->getInventory()->addItem($item);
             }
         }
-        $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.successful.item-sent-auto"));
         $target->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($target, "Messages.successful.item-received"));
-        PluginUtils::PlaySound($player, "random.pop2", 1, 6.5);
         PluginUtils::PlaySound($target, "random.levelup", 1, 6.5);
+        $player->sendMessage(GiveAll::getPrefix(). GiveAll::getMessage($player, "Messages.successful.item-sent-auto"));
+        PluginUtils::PlaySound($player, "random.pop2", 1, 6.5);
     }
 
     /**

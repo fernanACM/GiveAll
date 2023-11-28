@@ -9,6 +9,13 @@
 
 <a href="https://discord.gg/YyE9XFckqb"><img src="https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord" alt="Discord" /></a>
 
+### 📸 Images
+**Form menu for one task at a time:**
+<img src="https://github.com/fernanACM/GiveAll/assets/83558341/6076b0a7-869c-466f-8748-4414f3a33dba">
+
+**Inventory menu for several tasks at the same time:**
+<img src="https://github.com/fernanACM/GiveAll/assets/83558341/8b1e56de-1fe3-4406-ba88-55b180415d2f">
+
 ### 🌍 Wiki
 * Check our plugin [wiki](https://github.com/fernanACM/GiveAll/wiki) for features and secrets in the...
 

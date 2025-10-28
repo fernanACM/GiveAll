@@ -1,7 +1,7 @@
 name: GiveAll
 main: fernanACM\GiveAll\GiveAll
-version: 1.0.0
-api: 5.27.1
+version: 1.0.1
+api: 5.36.0
 author: fernanACM
 website: https://github.com/fernanACM
 description: Give items to all players on your server. Only for PocketMine-MP 5.0
